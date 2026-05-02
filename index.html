@@ -21,21 +21,12 @@
       font-size: 14px;
       font-weight: 400;
       color: #cccccc;
-      background-color: #000;
+      background: linear-gradient(135deg, #0d0d0d 0%, #111111 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
       padding: 24px;
-    }
-
-    .bg {
-      position: fixed;
-      inset: 0;
-      background: url(images/background.jpeg) center / cover no-repeat;
-      filter: blur(20px) brightness(0.15);
-      transform: scale(1.05);
-      z-index: 0;
     }
 
     .card {
@@ -170,8 +161,6 @@
   </style>
 </head>
 <body>
-  <div class="bg" aria-hidden="true"></div>
-
   <div class="card">
     <div class="card-header">
       <img class="avatar" src="images/profile.jpg" alt="Sajnikanth Suriyanarayanan" />
