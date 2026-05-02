@@ -116,8 +116,25 @@
       opacity: 1;
     }
 
-    .social img {
+    .social-icon {
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
+      background: #1e1e1e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+    }
+
+    .social a:hover .social-icon {
+      background: #27a9e1;
+    }
+
+    .social-icon img {
+      width: 24px;
+      height: 24px;
+      filter: invert(1);
     }
 
     /* Presentations */
@@ -217,10 +234,10 @@
       </p>
 
       <ul class="social">
-        <li><a href="mailto:mail@sajnikanth.com" target="_blank"><img src="images/email.png" height="48" width="48" alt="email" title="email" /></a></li>
-        <li><a href="https://linkedin.com/in/sajnikanth" target="_blank"><img src="images/linkedin.png" height="48" width="48" alt="linkedin" title="linkedin" /></a></li>
-        <li><a href="https://goodreads.com/sajnikanth" target="_blank"><img src="images/goodreads.png" height="48" width="48" alt="goodreads" title="goodreads" /></a></li>
-        <li><a href="https://github.com/sajnikanth" target="_blank"><img src="images/github.png" height="48" width="48" alt="github" title="github" /></a></li>
+        <li><a href="mailto:mail@sajnikanth.com" target="_blank"><div class="social-icon"><img src="images/email.svg" alt="email" title="email" /></div></a></li>
+        <li><a href="https://linkedin.com/in/sajnikanth" target="_blank"><div class="social-icon"><img src="images/linkedin.svg" alt="linkedin" title="linkedin" /></div></a></li>
+        <li><a href="https://goodreads.com/sajnikanth" target="_blank"><div class="social-icon"><img src="images/goodreads.svg" alt="goodreads" title="goodreads" /></div></a></li>
+        <li><a href="https://github.com/sajnikanth" target="_blank"><div class="social-icon"><img src="images/github.svg" alt="github" title="github" /></div></a></li>
       </ul>
 
       <p class="section-label">Presentations</p>
