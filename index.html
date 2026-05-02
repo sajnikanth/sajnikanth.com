@@ -26,54 +26,58 @@
       align-items: center;
       justify-content: center;
       min-height: 100vh;
-      padding: 24px;
+      padding: 40px 24px;
     }
 
     .card {
-      position: relative;
-      z-index: 1;
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      max-width: 860px;
       background: #0f0f0f;
       border: 1px solid #1e1e1e;
       border-radius: 12px;
-      padding: 32px;
-      width: 100%;
-      max-width: 480px;
       box-shadow: 0 4px 32px rgba(0, 0, 0, 0.6);
+      overflow: hidden;
     }
 
-    /* Header */
-    .card-header {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 20px;
-    }
-
-    .avatar {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      border: 2px solid #27a9e1;
-      object-fit: cover;
+    /* Left: portrait */
+    .card-photo {
+      width: 280px;
       flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
     }
 
-    .card-header-text {
+    .card-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    /* Right: content */
+    .card-content {
+      flex: 1;
+      padding: 36px 36px 28px;
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      border-left: 1px solid #1e1e1e;
     }
 
     .card-name {
-      font-size: 18px;
+      font-size: 22px;
       font-weight: 600;
       color: #ffffff;
       line-height: 1.2;
+      margin-bottom: 4px;
     }
 
     .card-role {
-      font-size: 12px;
+      font-size: 13px;
       color: #888888;
+      margin-bottom: 20px;
     }
 
     .divider {
@@ -84,20 +88,18 @@
       margin-bottom: 20px;
     }
 
-    /* Bio */
     .bio {
       line-height: 1.7;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
       color: #cccccc;
     }
 
     /* Social icons */
     .social {
       display: flex;
-      justify-content: center;
       gap: 12px;
       list-style: none;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
 
     .social a {
@@ -137,67 +139,79 @@
       color: #ffffff;
     }
 
-    /* Footer */
     .card-footer {
-      text-align: center;
+      margin-top: auto;
       font-size: 11px;
       color: rgba(255, 255, 255, 0.4);
     }
 
-    /* Mobile */
-    @media (max-width: 600px) {
+    /* Mobile: stack vertically */
+    @media (max-width: 700px) {
       body {
         padding: 0;
         align-items: flex-start;
       }
 
       .card {
+        flex-direction: column;
         border-radius: 0;
         border-left: none;
         border-right: none;
         min-height: 100vh;
+      }
+
+      .card-photo {
+        width: 100%;
+        height: 260px;
+      }
+
+      .card-content {
+        border-left: none;
+        border-top: 1px solid #1e1e1e;
+        padding: 24px 20px 20px;
       }
     }
   </style>
 </head>
 <body>
   <div class="card">
-    <div class="card-header">
-      <img class="avatar" src="images/profile.jpg" alt="Sajnikanth Suriyanarayanan" />
-      <div class="card-header-text">
-        <div class="card-name">Sajnikanth Suriyanarayanan</div>
-        <div class="card-role">Engineering Manager &middot; Amsterdam</div>
-      </div>
+    <div class="card-photo">
+      <img src="images/profile.jpg" alt="Sajnikanth Suriyanarayanan" />
     </div>
 
-    <hr class="divider" />
+    <div class="card-content">
+      <div class="card-name">Sajnikanth Suriyanarayanan</div>
+      <div class="card-role">Engineering Manager &middot; Amsterdam</div>
 
-    <p class="bio">
-      I'm Sajnikanth, a Coastal Geoscientist who wandered into the world of tech, Python, and people.
-      I've lived and worked across India, Germany, China, Singapore, and now call The Netherlands home.
-      Along the way, I've led teams, automated a few things, and helped build better workplaces.
-      I'm also an LVV-registervertrouwenspersoon&reg;; trusted person you can talk to when things don't feel right.
-      Always up for meaningful conversations (or coffee).
-    </p>
+      <hr class="divider" />
 
-    <ul class="social">
-      <li><a href="mailto:mail@sajnikanth.com" target="_blank"><img src="images/email.png" height="48" width="48" alt="email" title="email" /></a></li>
-      <li><a href="https://linkedin.com/in/sajnikanth" target="_blank"><img src="images/linkedin.png" height="48" width="48" alt="linkedin" title="linkedin" /></a></li>
-      <li><a href="https://goodreads.com/sajnikanth" target="_blank"><img src="images/goodreads.png" height="48" width="48" alt="goodreads" title="goodreads" /></a></li>
-      <li><a href="https://github.com/sajnikanth" target="_blank"><img src="images/github.png" height="48" width="48" alt="github" title="github" /></a></li>
-    </ul>
+      <p class="bio">
+        I'm Sajnikanth, a Coastal Geoscientist who wandered into the world of tech, Python, and people.
+        I've lived and worked across India, Germany, China, Singapore, and now call The Netherlands home.
+        Along the way, I've led teams, automated a few things, and helped build better workplaces.
+        I'm also an LVV-registervertrouwenspersoon&reg;; trusted person you can talk to when things don't feel right.
+        Always up for meaningful conversations (or coffee).
+      </p>
 
-    <p class="section-label">Presentations</p>
-    <ul class="presentations">
-      <li><a href="http://www.youtube.com/watch?v=2ggWbGLkBPk#" target="_blank">Python for black-box testers</a> &ndash; <a href="http://www.slideshare.net/sajnikanth/python-for-blackbox-testers-22923764" target="_blank">slides</a></li>
-      <li><a href="http://www.slideshare.net/sajnikanth/introduction-to-holmium" target="_blank">Introduction to holmium</a> &ndash; <a href="http://lifeinvistaprint.com/techblog/unit-testing-holmium-page-objects/" target="_blank">blog</a></li>
-      <li><a href="http://www.slideshare.net/sajnikanth/qa-to-sous-chef" target="_blank">QA to sous-Chef</a></li>
-      <li><a href="http://www.slideshare.net/sajnikanth/introduction-to-saucelabs" target="_blank">Introduction to SauceLabs</a></li>
-    </ul>
+      <ul class="social">
+        <li><a href="mailto:mail@sajnikanth.com" target="_blank"><img src="images/email.png" height="48" width="48" alt="email" title="email" /></a></li>
+        <li><a href="https://linkedin.com/in/sajnikanth" target="_blank"><img src="images/linkedin.png" height="48" width="48" alt="linkedin" title="linkedin" /></a></li>
+        <li><a href="https://goodreads.com/sajnikanth" target="_blank"><img src="images/goodreads.png" height="48" width="48" alt="goodreads" title="goodreads" /></a></li>
+        <li><a href="https://github.com/sajnikanth" target="_blank"><img src="images/github.png" height="48" width="48" alt="github" title="github" /></a></li>
+      </ul>
 
-    <div class="card-footer">
-      &copy; Sajnikanth Suriyanarayanan,
-      <script>document.write(new Date().getFullYear());</script>
+      <p class="section-label">Presentations</p>
+      <ul class="presentations">
+        <li><a href="http://www.youtube.com/watch?v=2ggWbGLkBPk#" target="_blank">Python for black-box testers</a> &ndash; <a href="http://www.slideshare.net/sajnikanth/python-for-blackbox-testers-22923764" target="_blank">slides</a></li>
+        <li><a href="http://www.slideshare.net/sajnikanth/introduction-to-holmium" target="_blank">Introduction to holmium</a> &ndash; <a href="http://lifeinvistaprint.com/techblog/unit-testing-holmium-page-objects/" target="_blank">blog</a></li>
+        <li><a href="http://www.slideshare.net/sajnikanth/qa-to-sous-chef" target="_blank">QA to sous-Chef</a></li>
+        <li><a href="http://www.slideshare.net/sajnikanth/introduction-to-saucelabs" target="_blank">Introduction to SauceLabs</a></li>
+      </ul>
+
+      <div class="card-footer">
+        &copy; Sajnikanth Suriyanarayanan,
+        <script>document.write(new Date().getFullYear());</script>
+      </div>
     </div>
   </div>
 
